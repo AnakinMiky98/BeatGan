@@ -18,11 +18,12 @@ class MyDataSet(Dataset):
         return self.data.shape[0]
 
 
-def preprocess_data(data, labels=None, param=None, is_train=True):
+def preprocess_data(data, labels, param, is_train=True):
+    """
     import numpy as np
     if labels is False:
         labels = np.zeros([data.shape[0], 1])
-        
+    """    
 
     dataset = MyDataSet(data, labels)
     batch_size = param_default(param, "batch_size", 64)
