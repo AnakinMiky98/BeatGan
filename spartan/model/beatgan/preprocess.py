@@ -20,9 +20,9 @@ class MyDataSet(Dataset):
 
 def preprocess_data(data, labels=None, param=None, is_train=True):
     import numpy as np
-    if labels is None:
+    if labels is False:
         labels = np.zeros([data.shape[0], 1])
-        print(labels)
+        
 
     dataset = MyDataSet(data, labels)
     batch_size = param_default(param, "batch_size", 64)
