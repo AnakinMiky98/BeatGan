@@ -10,7 +10,8 @@ def __call__():
 
 class BeatGAN():
     def __init__(self, *args, **kwargs):
-        raise ModuleNotFoundError("Please select a network type.")
+        #raise ModuleNotFoundError("Please select a network type.")
+        print(args, kwargs)
 
     @classmethod
     def __create__(cls, *args, **kwargs):
