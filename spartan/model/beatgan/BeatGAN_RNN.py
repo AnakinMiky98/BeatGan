@@ -239,8 +239,14 @@ class Discriminator(nn.Module):
 
 class BeatGAN(MLmodel):
     def __init__(self, data, *args, **param):
+        print('data ', data, 'tipo ', type(data))
+        print('args ', args, 'tipo ', type(args))
+        print('param ', param, 'tipo ', type(param))
+        
         super(BeatGAN, self).__init__(data, *args, **param)
-        self.dataloader = preprocess_data(data, False, param)
+        labels = np.zeros([data.shape[0], 1])
+        
+        self.dataloader = preprocess_data(data, labels, param)
         self.device = device
         self.lamda_value = param_default(param, "lambda", 1)
         self.seq_len = param_default(param, "seq_len", 64)
