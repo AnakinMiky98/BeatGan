@@ -309,7 +309,7 @@ class BeatGAN(MLmodel):
                 for param_group in self.optimizerD.param_groups:
                     param_group['lr'] = param_group['lr'] * 0.75
 
-            # print("best auc:{} in [{}]    best f1:{}  in [{}]".format(best_auc, best_auc_epo, best_f1, best_f1_epo))
+            print("best auc:{} in [{}]    best f1:{}  in [{}]".format(best_auc, best_auc_epo, best_f1, best_f1_epo))
 
     def train_epoch(self):
         self.encoder.train()
