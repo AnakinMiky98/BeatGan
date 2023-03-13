@@ -430,7 +430,8 @@ class BeatGAN(MLmodel):
                 mse_metric = torch.mean(torch.sum(torch.pow(data_X - rec_x, 2), dim=2),
                                         dim=1).detach().cpu().numpy()
                 rec_diff.append(mse_metric)
-        print(rec_diff)
+                print(rec_diff)
+        
         rec_diff = np.concatenate(rec_diff)
 
         return rec_diff
