@@ -4,9 +4,9 @@ from .._model import DMmodel
 from . import param_default, DTensor
 
 param_default_dict = {
-    'sampling_rate': 500
-    'left_size': 250
-    'right_size': 250
+    'sampling_rate': 500,
+    'left_size': 250,
+    'right_size': 250,
     'out_path': None
 }
 
