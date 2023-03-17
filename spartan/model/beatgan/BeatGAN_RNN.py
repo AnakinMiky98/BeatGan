@@ -250,17 +250,17 @@ class BeatGAN(MLmodel):
         self.device = device
         self.lamda_value = param_default(param, "lambda", 1)
         self.seq_len = param_default(param, "seq_len", 64)
-        self.max_epoch = param_default(param, "max_epoch", 10)
+        self.max_epoch = param_default(param, "max_epoch", 5)
         self.lr = param_default(param, "lr", 0.01)
 
-        self.encoder = Encoder(param_default(param, "layers", 50), \
-            param_default(param, "input_size", 44), param_default(param, "hidden_size", 100), \
+        self.encoder = Encoder(param_default(param, "layers", 1), \
+            param_default(param, "input_size", 1), param_default(param, "hidden_size", 100), \
                 0, param_default(param, "rep_size", 20), device, cell=param_default(param, "net_type", "gru")).to(device)
-        self.decoder = Decoder(param_default(param, "layers", 50), \
-            param_default(param, "input_size", 44), param_default(param, "hidden_size", 100), \
+        self.decoder = Decoder(param_default(param, "layers", 1), \
+            param_default(param, "input_size", 1), param_default(param, "hidden_size", 100), \
                 0, param_default(param, "rep_size", 20), device, cell=param_default(param, "net_type", "gru")).to(device)
-        self.discriminator = Discriminator(param_default(param, "layers", 50), \
-            param_default(param, "input_size", 44), param_default(param, "hidden_size", 100), \
+        self.discriminator = Discriminator(param_default(param, "layers", 1), \
+            param_default(param, "input_size", 1), param_default(param, "hidden_size", 100), \
                 0, device, cell=param_default(param, "net_type", "gru")).to(device)
 
         self.mse = nn.MSELoss()
